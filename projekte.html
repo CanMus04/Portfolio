@@ -5,19 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Meine Projekte</title>
-    <!-- AOS Animation Library -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <!-- Google Fonts - Poppins -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Modern Color Scheme - Purple/Blue Gradient Theme */
-            --primary-color: #7e57c2; /* Purple */
+            --primary-color: #7e57c2; 
             --primary-color-light: #b085f5;
-            --secondary-color: #448aff; /* Blue */
-            --accent-color: #ff5252; /* Red accent for highlights */
+            --secondary-color: #448aff; 
+            --accent-color: #ff5252; 
             --background-dark: #121212;
             --background-card: #1e1e1e;
             --text-primary: #ffffff;
@@ -43,7 +39,7 @@
             font-weight: 300;
         }
         
-        /* Modern Scrollbar */
+
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -285,7 +281,7 @@
             color: transparent;
         }
         
-        /* Language switcher styles - UPDATED */
+        
         .language-container {
             position: relative;
             margin-left: 20px;
@@ -358,7 +354,7 @@
             align-items: center;
         }
         
-        /* Modal Styles */
+       
         .modal {
             display: none;
             position: fixed;
@@ -468,7 +464,7 @@
             display: none;
         }
         
-        /* Mobile responsiveness */
+      
         @media (max-width: 768px) {
             .projects-grid {
                 grid-template-columns: 1fr;
@@ -505,7 +501,7 @@
     </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
+  
     <nav class="navigation">
         <a href="index.html" class="nav-logo">Mein Python Portfolio</a>
         <div class="nav-right">
@@ -542,7 +538,7 @@
     
     <div class="container">
         <div class="projects-grid">
-            <!-- Projekt 1 -->
+           
             <div class="project-card" data-aos="fade-up" data-aos-duration="1100">
                 <div class="project-img">
                     <img src="https://i.pinimg.com/236x/d0/cb/6a/d0cb6aeabb07ebf5420eb6b45998bc21.jpg" alt="Zahlenraten-Spiel" id="img-zahlenraten">
@@ -561,7 +557,7 @@
                 </div>
             </div>
             
-            <!-- Projekt 2 -->
+           
             <div class="project-card" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="100">
                 <div class="project-img">
                     <img src="https://i.pinimg.com/736x/8a/c7/cb/8ac7cb1b64aefa535318143684c75993.jpg" alt="Taschenrechner" id="img-taschenrechner">
@@ -580,7 +576,7 @@
                 </div>
             </div>
             
-            <!-- Projekt 3 -->
+            
             <div class="project-card" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="200">
                 <div class="project-img">
                     <img src="https://i.pinimg.com/236x/24/86/4f/24864fa604c48845ee9e64ebc6441c3c.jpg" alt="To-Do Liste" id="img-todo">
@@ -600,7 +596,7 @@
                 </div>
             </div>
             
-            <!-- Projekt 4 -->
+            
             <div class="project-card" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="300">
                 <div class="project-img">
                     <img src="https://i.pinimg.com/236x/99/e1/7a/99e17ab58f508c85d675be40f7e05a23.jpg" alt="Wetter-Abfrage" id="img-wetter">
@@ -620,7 +616,7 @@
                 </div>
             </div>
             
-            <!-- Projekt 5 -->
+          
             <div class="project-card" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="400">
                 <div class="project-img">
                     <img src="https://i.pinimg.com/236x/e4/56/99/e45699f5b647dd32bafefa253c865cf0.jpg" alt="Passwort Generator" id="img-password">
@@ -640,7 +636,7 @@
                 </div>
             </div>
             
-            <!-- Projekt 6 -->
+          
             <div class="project-card" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="500">
                 <div class="project-img">
                     <img src="https://i.pinimg.com/236x/41/a9/8f/41a98fb3cef655eb56658464a4112f15.jpg" alt="Stein-Schere-Papier" id="img-ssp">
@@ -668,7 +664,7 @@
         </div>
     </div>
     
-    <!-- Modal für "In Bearbeitung" -->
+   
     <div id="processing-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -694,7 +690,7 @@
     <script>
         AOS.init();
         
-        // Projektnamen für die Anzeige im Modal
+       
         const projectNames = {
             'zahlenraten': 'Zahlenraten-Spiel',
             'taschenrechner': 'Taschenrechner',
@@ -704,48 +700,46 @@
             'ssp': 'Stein-Schere-Papier'
         };
         
-        // Modal-Elemente
+       
         const modal = document.getElementById("processing-modal");
         const uploadModal = document.getElementById("upload-modal");
         const closeButtons = document.getElementsByClassName("close");
         const closeModalBtn = document.getElementById("close-modal-btn");
         const uploadBtn = document.getElementById("upload-btn");
         
-        // Sprachmenü-Elemente
+     
         const languageSwitcher = document.getElementById("languageSwitcher");
         const languageOptions = document.getElementById("languageOptions");
-        
-        // Event-Listener für Sprachmenü - Toggle beim Klick
+      
         languageSwitcher.addEventListener('click', function(e) {
-            e.stopPropagation(); // Verhindert Bubble-Up des Events
+            e.stopPropagation(); 
             languageOptions.classList.toggle('show');
         });
         
-        // Event-Listener zum Schließen des Sprachmenüs beim Klick außerhalb
+        
         document.addEventListener('click', function(e) {
             if (!languageSwitcher.contains(e.target) && !languageOptions.contains(e.target)) {
                 languageOptions.classList.remove('show');
             }
         });
         
-        // Sprachauswahl-Links verarbeiten
+       
         document.querySelectorAll('.language-options a').forEach(link => {
             link.addEventListener('click', function(e) {
-                // Das Menü schließt sich automatisch, da wir zu einer neuen Seite navigieren
-                // Kein e.preventDefault() hier, damit die Navigation stattfindet
+               
             });
         });
         
-        // Aktuelles Projekt für Modal-Titel speichern
+      
         let currentProject = '';
         
-        // Event-Listener für "Live Demo"-Links
+    
         document.querySelectorAll('.live-link').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 currentProject = this.getAttribute('data-project');
                 
-                // Projekt-Namen im Modal-Titel anzeigen
+                
                 const modalTitle = document.querySelector('.modal-title');
                 if (projectNames[currentProject]) {
                     modalTitle.textContent = projectNames[currentProject] + " - In Bearbeitung";
@@ -753,7 +747,7 @@
                     modalTitle.textContent = "Projekt in Bearbeitung";
                 }
                 
-                // Modal anzeigen
+               
                 modal.style.display = "block";
                 setTimeout(() => {
                     modal.classList.add("show");
@@ -761,19 +755,19 @@
             });
         });
         
-        // Modal schließen wenn auf X geklickt wird
+       
         Array.from(closeButtons).forEach(btn => {
             btn.addEventListener('click', function() {
                 closeModal(this.closest('.modal'));
             });
         });
         
-        // Modal schließen mit "Verstanden"-Button
+        
         closeModalBtn.addEventListener('click', function() {
             closeModal(modal);
         });
 
-        // Modal schließen wenn außerhalb geklickt wird
+      
 window.addEventListener('click', function(e) {
     if (e.target == modal) {
         closeModal(modal);
@@ -783,7 +777,7 @@ window.addEventListener('click', function(e) {
     }
 });
 
-// Funktion zum Schließen des Modals mit Animation
+
 function closeModal(modalElement) {
     modalElement.classList.remove("show");
     setTimeout(() => {
@@ -791,17 +785,16 @@ function closeModal(modalElement) {
     }, 300);
 }
 
-// Upload-Button Event-Listener
+
 uploadBtn.addEventListener('click', function() {
-    // Hier könnte der Upload-Code stehen
+   
     closeModal(uploadModal);
     alert('Upload-Funktion noch nicht implementiert');
 });
 
-// Placeholder-Bilder laden
+
 document.addEventListener('DOMContentLoaded', function() {
-    // Hier könnte Code stehen, um echte Bilder zu laden
-    // Aktuell werden Platzhalterbilder verwendet
+ 
 });
 
 window.addEventListener('click', function(e) {
@@ -813,7 +806,7 @@ window.addEventListener('click', function(e) {
     }
 });
 
-// Funktion zum Schließen des Modals mit Animation
+
 function closeModal(modalElement) {
     modalElement.classList.remove("show");
     setTimeout(() => {
@@ -821,20 +814,16 @@ function closeModal(modalElement) {
     }, 300);
 }
 
-// Upload-Button Event-Listener
+
 uploadBtn.addEventListener('click', function() {
-    // Hier könnte der Upload-Code stehen
+    
     closeModal(uploadModal);
     alert('Upload-Funktion noch nicht implementiert');
 });
-
-// Placeholder-Bilder laden
-document.addEventListener('DOMContentLoaded', function() {
-    // Hier könnte Code stehen, um echte Bilder zu laden
-    // Aktuell werden Platzhalterbilder verwendet
+document.addEventListener('DOMContentLoaded', function() {  
 });
 
-// Event-Listener für ESC-Taste zum Schließen der Modals
+
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         if (modal.style.display === 'block') {
@@ -846,27 +835,27 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-// Datei-Upload-Handling
+
 const uploadInput = document.querySelector('.upload-input');
 uploadInput.addEventListener('change', function(e) {
     if (this.files && this.files[0]) {
-        // Datei-Handling-Logik hier
+      
         const file = this.files[0];
-        if (file.size > 5 * 1024 * 1024) { // 5MB Limit
+        if (file.size > 5 * 1024 * 1024) 
             alert('Die Datei ist zu groß! Bitte wähle eine Datei unter 5MB.');
             return;
         }
         
-        // Hier könnte man einen Vorschau-Code hinzufügen
+        
         const reader = new FileReader();
         reader.onload = function(e) {
-            // Vorschaubild aktualisieren oder andere Aktionen
+            
         };
         reader.readAsDataURL(file);
     }
 });
 
-// Drag & Drop-Funktionalität für Upload
+
 const uploadContainer = document.querySelector('.upload-container');
 ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
     uploadContainer.addEventListener(eventName, preventDefaults, false);
@@ -901,7 +890,7 @@ function handleDrop(e) {
     
     if (files && files[0]) {
         uploadInput.files = files;
-        // Trigger change-Event
+      
         const event = new Event('change');
         uploadInput.dispatchEvent(event);
     }
