@@ -57,12 +57,7 @@
         margin-right: 8px;
       }
       
-      /* Entfernen des hover-Stils, da wir jetzt ein Klick-Event verwenden */
-      /*.language-container:hover .language-options {
-        display: block;
-      }*/
-      
-      /* Neue Klasse für geöffnetes Menü */
+    
       .language-options.show {
         display: block;
       }
@@ -80,7 +75,6 @@
               <div class="link" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="200"><a href="#about">Über mich</a></div>
               <div class="link" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="300"><a href="#skills">Skills</a></div>
               <div class="link" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="400"><a href="#services">Meine Ziele</a></div>
-              <div class="link" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="500"><a href="#contact">Kontaktiere mich</a></div>
               <div class="language-container" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="600">
                 <div class="language-switcher" id="languageSwitcherBtn">
                   <div class="current-lang">
@@ -103,7 +97,6 @@
               <a href="#">über mich</a>
               <a href="#">Skills</a>
               <a href="#">Meine Ziele</a>
-              <a href="#">Kontaktiere mich</a>
               <div class="language-switcher-mobile">
                 <a href="index.html" class="active"><span class="flag">🇩🇪</span> Deutsch</a>
                 <a href="index-en.html"><span class="flag">🇬🇧</span> English</a>
@@ -144,7 +137,8 @@
           <img src="main.png" alt="" />
         </div>
         <div class="right" >
-            <p class="about-text" data-aos="fade-left" data-aos-duration="1100" data-aos-delay="200">Ich Heiße <span>Can</span> und ich bin ein <span>Schüler & Hobby Programmierer</span> In meiner Freizeit spiele ich gerne Computerspiele, aber genauso gerne gehe ich ins Gym, um mich auszupowern. Ich mag es auch, kreativ zu sein – sei es beim Musik hören, Videos schneiden oder Zeichnen. Neue Dinge auszuprobieren und mich weiterzuentwickeln, macht mir einfach Spaß.</p>
+            <p class="about-text" data-aos="fade-left" data-aos-duration="1100" data-aos-delay="200">Ich Heiße <span>Can</span> und ich bin ein <span>Schüler & Hobby Programmierer</span> In meiner Freizeit spiele ich gerne Computerspiele genauso gerne gehe ich ins Gym, um mich auszupowern. Ich mag es  kreativ zu sein – sei es beim Musik hören, Videos schneiden oder Zeichnen. Neue Dinge auszuprobieren und mich weiterzuentwickeln, macht mir einfach Spaß.
+              Im Jahr 2022 hatte ich eine Entzündung im Rückenmark namens Transverse Myelitis, wodurch ich von Kopf bis Fuß gelähmt war. Für eine lange Zeit lebte ich im Krankenhaus und kämpfte mich Schritt für Schritt zurück ins Leben..</p>
             <div class="exp-area">
               <p class="exp" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="300"> 
                 Erfahrung:                                                                                                                                     
@@ -274,40 +268,7 @@
       </div>
     </section>
 
-    <section class="contact" id="contact">
-      <div class="content">
-        <div class="title" data-aos="fade-up" data-aos-duration="1100"><span>Kontaktiere mich</span></div>
-        <div class="text">
-          <div class="topic" data-aos="fade-left" data-aos-duration="1100" data-aos-delay="100">Sie Haben eine Stelle?</div>
-          <p data-aos="fade-right" data-aos-duration="1100" data-aos-delay="200">Ich suche eine Ausbildung im Bereich Informatik, speziell in der Anwendungsentwicklung, um meine Fähigkeiten weiter auszubauen und mich beruflich zu entwickeln. Haben Sie eine passende Stelle?</p>
-        </div>
-        <div class="contact-form-container">
-          <form id="contactForm" class="contact-form">
-              <div id="formAlert" class="form-alert" style="display: none;"></div>
-              
-              <label for="name" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="300">Name</label>
-              <input type="text" id="name" name="name" placeholder="Ihr Name" required data-aos="fade-up" data-aos-duration="1100" data-aos-delay="300">
     
-              <label for="email" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="400">E-Mail</label>
-              <input type="email" id="email" name="email" placeholder="Ihre E-Mail" required data-aos="fade-up" data-aos-duration="1100" data-aos-delay="400">
-    
-              <label for="phone" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="500">Telefonnummer</label>
-              <input type="tel" id="phone" name="phone" placeholder="Ihre Telefonnummer" required data-aos="fade-up" data-aos-duration="1100" data-aos-delay="500">
-    
-              <label for="message" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="600">Nachricht</label>
-              <textarea id="message" name="message" rows="5" placeholder="Ihre Nachricht" required data-aos="fade-up" data-aos-duration="1100" data-aos-delay="600"></textarea>
-    
-              <button type="submit" class="contact-btn" data-aos="zoom-in-up" data-aos-duration="1100" data-aos-delay="700">
-                <span class="btn-text">Nachricht senden</span>
-                <span class="btn-loader" style="display: none;">
-                  <i class="fas fa-spinner fa-spin"></i>
-                </span>
-              </button>
-          </form>
-        </div>
-      </div>
-    </section>
-  
     <footer >
       <div class="text">
         <span>Erstellt von <a href="#">Can Mustafa</a> | &#169; 2025 Alle Rechte vorbehalten</span>
@@ -327,27 +288,26 @@
         navbar.style.transform = 'translateY(-500px)';
       }
 
-      // Neuer Code für das Sprachmenü
+      
       document.addEventListener('DOMContentLoaded', function() {
         const languageSwitcherBtn = document.getElementById('languageSwitcherBtn');
         const languageOptions = document.getElementById('languageOptions');
         
-        // Funktion zum Öffnen/Schließen des Menüs beim Klicken
+        
         languageSwitcherBtn.addEventListener('click', function(event) {
-          event.stopPropagation(); // Verhindert, dass das Klick-Event zum Dokument weitergeleitet wird
+          event.stopPropagation(); 
           languageOptions.classList.toggle('show');
         });
         
-        // Schließt das Menü, wenn irgendwo anders auf die Seite geklickt wird
         document.addEventListener('click', function(event) {
           if (!languageSwitcherBtn.contains(event.target)) {
             languageOptions.classList.remove('show');
           }
         });
         
-        // Verhindert, dass das Menü geschlossen wird, wenn man darauf klickt
+        
         languageOptions.addEventListener('click', function(event) {
-          // Wir lassen das standard Link-Verhalten zu, aber stoppen das Event-Bubbling
+          
           event.stopPropagation();
         });
       });
