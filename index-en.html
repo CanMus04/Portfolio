@@ -61,7 +61,7 @@
         display: block;
       }
       
-      /* Add this to style the mobile language switcher */
+      
       .language-switcher-mobile a {
         display: flex;
         align-items: center;
@@ -84,7 +84,6 @@
               <div class="link" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="200"><a href="#about">About me</a></div>
               <div class="link" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="300"><a href="#skills">Skills</a></div>
               <div class="link" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="400"><a href="#services">My Goals</a></div>
-              <div class="link" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="500"><a href="#contact">Contact me</a></div>
               <div class="language-container" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="600">
                 <div class="language-switcher" id="langSwitcher">
                   <div class="current-lang">
@@ -107,7 +106,6 @@
               <a href="#">About me</a>
               <a href="#">Skills</a>
               <a href="#">My Goals</a>
-              <a href="#">Contact me</a>
               <div class="language-switcher-mobile">
                 <a href="index.html"><span class="flag">🇩🇪</span> German</a>
                 <a href="index-en.html" class="active"><span class="flag">🇬🇧</span> English</a>
@@ -132,7 +130,7 @@
                   <a href="https://x.com/CanMusW"  data-aos="fade-up" data-aos-duration="1100" data-aos-delay="1600"><i class="fa-brands fa-twitter"></i></a>
               </div>
               <div class="button" data-aos="zoom-out" data-aos-duration="1100" data-aos-delay="900">
-                <a href="resume.html">
+                <a href="lebenslauf-en.html">
                   <button>Resume</button>
                 </a>
               </div>
@@ -278,39 +276,7 @@
       </div>
     </section>
 
-    <section class="contact" id="contact">
-      <div class="content">
-        <div class="title" data-aos="fade-up" data-aos-duration="1100"><span>Contact Me</span></div>
-        <div class="text">
-          <div class="topic" data-aos="fade-left" data-aos-duration="1100" data-aos-delay="100">Do you have a position?</div>
-          <p data-aos="fade-right" data-aos-duration="1100" data-aos-delay="200">I am looking for training in the field of computer science, specifically in application development, to further expand my skills and develop professionally. Do you have a suitable position?</p>
-        </div>
-        <div class="contact-form-container">
-          <form id="contactForm" class="contact-form">
-              <div id="formAlert" class="form-alert" style="display: none;"></div>
-              
-              <label for="name" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="300">Name</label>
-              <input type="text" id="name" name="name" placeholder="Your name" required data-aos="fade-up" data-aos-duration="1100" data-aos-delay="300">
     
-              <label for="email" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="400">Email</label>
-              <input type="email" id="email" name="email" placeholder="Your email" required data-aos="fade-up" data-aos-duration="1100" data-aos-delay="400">
-    
-              <label for="phone" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="500">Phone number</label>
-              <input type="tel" id="phone" name="phone" placeholder="Your phone number" required data-aos="fade-up" data-aos-duration="1100" data-aos-delay="500">
-    
-              <label for="message" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="600">Message</label>
-              <textarea id="message" name="message" rows="5" placeholder="Your message" required data-aos="fade-up" data-aos-duration="1100" data-aos-delay="600"></textarea>
-    
-              <button type="submit" class="contact-btn" data-aos="zoom-in-up" data-aos-duration="1100" data-aos-delay="700">
-                <span class="btn-text">Send Message</span>
-                <span class="btn-loader" style="display: none;">
-                  <i class="fas fa-spinner fa-spin"></i>
-                </span>
-              </button>
-          </form>
-        </div>
-      </div>
-    </section>
   
     <footer >
       <div class="text">
@@ -331,23 +297,23 @@
         navbar.style.transform = 'translateY(-500px)';
       }
       
-      // Language switcher functionality
+      
       document.addEventListener('DOMContentLoaded', function() {
         const langSwitcher = document.getElementById('langSwitcher');
         const langOptions = document.getElementById('langOptions');
         
-        // Toggle language options when clicking on the language switcher
+        
         langSwitcher.addEventListener('click', function(e) {
-          e.stopPropagation();  // Prevent click from propagating to document
+          e.stopPropagation();  
           langOptions.classList.toggle('show');
         });
         
-        // Close language options when clicking anywhere else on the page
+        
         document.addEventListener('click', function() {
           langOptions.classList.remove('show');
         });
         
-        // Prevent clicks inside language options from closing the menu
+       
         langOptions.addEventListener('click', function(e) {
           e.stopPropagation();
         });
