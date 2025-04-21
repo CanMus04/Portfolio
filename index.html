@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Can´s Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+      .language-switcher {
+        display: flex;
+        align-items: center;
+        margin-left: 20px;
+        cursor: pointer;
+      }
+      
+      .language-switcher .flag {
+        margin-right: 5px;
+        font-size: 16px;
+      }
+      
+      .language-switcher .current-lang {
+        display: flex;
+        align-items: center;
+      }
+      
+      .language-options {
+        display: none;
+        position: absolute;
+        background-color: white;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        z-index: 100;
+        border-radius: 5px;
+        overflow: hidden;
+        top: 100%;
+        margin-top: 5px;
+      }
+      
+      .language-container {
+        position: relative;
+      }
+      
+      .language-options a {
+        display: flex;
+        align-items: center;
+        padding: 10px 15px;
+        text-decoration: none;
+        color: #333;
+      }
+      
+      .language-options a:hover {
+        background-color: #f5f5f5;
+      }
+      
+      .language-options .flag {
+        margin-right: 8px;
+      }
+      
+      /* Entfernen des hover-Stils, da wir jetzt ein Klick-Event verwenden */
+      /*.language-container:hover .language-options {
+        display: block;
+      }*/
+      
+      /* Neue Klasse für geöffnetes Menü */
+      .language-options.show {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+
+    <nav>
+      <div class="nav-container">
+          <div class="logo" data-aos="zoom-in" data-aos-duration="1100">
+            Can <span>Mustafa</span>
+          </div>
+          <div class="links">
+              <div class="link" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="100"><a href="#hero">Startseite</a></div>
+              <div class="link" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="200"><a href="#about">Über mich</a></div>
+              <div class="link" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="300"><a href="#skills">Skills</a></div>
+              <div class="link" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="400"><a href="#services">Meine Ziele</a></div>
+              <div class="link" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="500"><a href="#contact">Kontaktiere mich</a></div>
+              <div class="language-container" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="600">
+                <div class="language-switcher" id="languageSwitcherBtn">
+                  <div class="current-lang">
+                    <span class="flag">🇩🇪</span>
+                    <span>DE</span>
+                    <i class="fas fa-chevron-down" style="margin-left: 5px; font-size: 12px;"></i>
+                  </div>
+                  <div class="language-options" id="languageOptions">
+                    <a href="index.html" class="active"><span class="flag">🇩🇪</span> Deutsch</a>
+                    <a href="index-en.html"><span class="flag">🇬🇧</span> English</a>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+      </div>
+      <div class="dropdown">
+          <div class="links">
+              <a href="#">Startseite</a>
+              <a href="#">über mich</a>
+              <a href="#">Skills</a>
+              <a href="#">Meine Ziele</a>
+              <a href="#">Kontaktiere mich</a>
+              <div class="language-switcher-mobile">
+                <a href="index.html" class="active"><span class="flag">🇩🇪</span> Deutsch</a>
+                <a href="index-en.html"><span class="flag">🇬🇧</span> English</a>
+              </div>
+              <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+          </div>
+      </div>
+  </nav>
+  <section id="hero">
+      <div class="main-container">
+          <div class="image" data-aos="zoom-in" data-aos-duration="2500">
+              <img src="main.png" alt="">
+          </div>
+          <div class="content">
+              <h1 data-aos="fade-left" data-aos-duration="1100" data-aos-delay="700">Hi, ich bin <span>Can</span></h1>
+              <div class="typewriter"  data-aos="fade-right" data-aos-duration="1100" data-aos-delay="900">ich bin ein <span class="typewriter-text"></span><label for="">|</label></div>
+              <p data-aos="flip-up" data-aos-duration="1100" data-aos-delay="1100">Fachinformatiker zu sein, ist mein Traumjob für die Zukunft. Es begeistert mich, mit Code Dinge zu erschaffen und Probleme zu lösen. Je mehr ich über Programmieren lerne, desto mehr motiviert es mich, noch besser zu werden und meine Fähigkeiten in der Zukunft beruflich einzusetzen.</p>
+              <div class="social-links">
+                  <a href="https://github.com/CanMus04" data-aos="zoom-out" data-aos-duration="1100" data-aos-delay="1300"><i class="fa-brands fa-github"></i></a>
+                  <a href="https://www.facebook.com/profile.php?id=100088644985655"  data-aos="fade-up" data-aos-duration="1100" data-aos-delay="1400"><i class="fa-brands fa-facebook"></i></a>
+                  <a href="https://www.linkedin.com/in/can-mustafa-189b32352/"  data-aos="fade-up" data-aos-duration="1100" data-aos-delay="1500"><i class="fa-brands fa-linkedin"></i></a>
+                  <a href="https://x.com/CanMusW"  data-aos="fade-up" data-aos-duration="1100" data-aos-delay="1600"><i class="fa-brands fa-twitter"></i></a>
+              </div>
+              <div class="button" data-aos="zoom-out" data-aos-duration="1100" data-aos-delay="900">
+                <a href="lebenslauf.html">
+                  <button>Lebenslauf</button>
+                </a>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="content">
+      <div class="title" data-aos="fade-up" data-aos-duration="1100"><span>Über mich</span></div>
+      <div class="about-details">
+        <div class="left"  data-aos="fade-right" data-aos-duration="1100" data-aos-delay="100">
+          <img src="main.png" alt="" />
+        </div>
+        <div class="right" >
+            <p class="about-text" data-aos="fade-left" data-aos-duration="1100" data-aos-delay="200">Ich Heiße <span>Can</span> und ich bin ein <span>Schüler & Hobby Programmierer</span> In meiner Freizeit spiele ich gerne Computerspiele, aber genauso gerne gehe ich ins Gym, um mich auszupowern. Ich mag es auch, kreativ zu sein – sei es beim Musik hören, Videos schneiden oder Zeichnen. Neue Dinge auszuprobieren und mich weiterzuentwickeln, macht mir einfach Spaß.</p>
+            <div class="exp-area">
+              <p class="exp" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="300"> 
+                Erfahrung:                                                                                                                                     
+                <span>2 Jahre</span>
+              </p>
+              
+              <p class="exp" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="400">
+                Fähigkeiten:
+                <span>Video-Bearbeitung & Programmieren</span>
+              </p>
+              <p class="exp" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="500">
+                Standort: 
+                <span>Herdecke, Deutschland</span>
+              </p>
+              
+              <p class="exp" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="600">
+                E-mail: 
+                <span>mustafacan2004.jbs@gmail.com</span>
+              </p>
+              
+              <p class="exp" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="700">
+                Telefon: 
+                <span>+49 163 7056329</span>
+              </p>
+              
+              <p class="exp" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="800">
+                Arbeitssuchend: 
+                <span>  Ja</span>
+              </p>
+            </div>
+            <div class="button" data-aos="zoom-out" data-aos-duration="1100" data-aos-delay="900">
+              <a href="projekte.html">
+                <button>Alle meine Projekte</button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+    <section class="skills" id="skills">
+      <div class="content">
+        <div class="title" data-aos="fade-up" data-aos-duration="1100"><span>Meine Skills</span></div>
+        <div class="skills-details">
+          <div class="text">
+            <div class="topic" data-aos="fade-right" data-aos-duration="1100" data-aos-delay="100">Skills spiegeln unser Wissen</div>
+            <p data-aos="flip-down" data-aos-duration="1100" data-aos-delay="200">Skills und Erfahrung sind entscheidend, um in einem Bereich erfolgreich zu sein. Deshalb habe ich mich bemüht, so viel Wissen wie möglich zu erwerben, um in meiner Position stets mein Bestes zu geben und mich kontinuierlich weiterzuentwickeln</p>
+            <div class="experience" data-aos="zoom-in" data-aos-duration="1100" data-aos-delay="300">
+              <div class="num">2</div>
+              <div class="exp">
+                Jahre an <br />
+                Erfahrung
+              </div>
+            </div>
+          </div>
+          <div class="boxes">
+            <div class="box" data-aos="zoom-in" data-aos-duration="1100" data-aos-delay="400">
+              <div class="topic" >HTML</div>
+              <div class="per" >25%</div>
+            </div>
+            <div class="box" data-aos="zoom-in" data-aos-duration="1100" data-aos-delay="500">
+              <div class="topic">CSS</div>
+              <div class="per">20%</div>
+            </div>
+            <div class="box" data-aos="zoom-in" data-aos-duration="1100" data-aos-delay="600">
+              <div class="topic">CAPCUT</div>
+              <div class="per" >85%</div>
+            </div>
+            <div class="box" data-aos="zoom-in" data-aos-duration="1100" data-aos-delay="700">
+              <div class="topic">PHYTHON</div>
+              <div class="per">30%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+    <section class="services" id="services">
+      <div class="content">
+        <div class="title" data-aos="fade-up" data-aos-duration="1100"><span>Meine Ziele</span></div>
+        <div class="boxes">
+          <div class="box" data-aos="flip-left" data-aos-duration="1100" data-aos-delay="100">
+            <div class="icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <div class="topic">Fachinformatiker werden</div>
+            <p>Als Fachinformatiker möchte ich meine technischen Fähigkeiten perfektionieren und komplexe IT-Probleme lösen können.</p>
+          </div>
+          <div class="box" data-aos="flip-left" data-aos-duration="1100" data-aos-delay="200">
+            <div class="icon">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <div class="topic">Programmier-Skills erweitern</div>
+            <p>Ich möchte meine Kenntnisse in verschiedenen Programmiersprachen vertiefen und neue Technologien erlernen.</p>
+          </div>
+          <div class="box" data-aos="flip-left" data-aos-duration="1100" data-aos-delay="300">
+            <div class="icon">
+              <i class="fas fa-project-diagram"></i>
+            </div>
+            <div class="topic">Eigene Projekte entwickeln</div>
+            <p>Durch die Entwicklung eigener Projekte möchte ich praktische Erfahrung sammeln und mein Portfolio ausbauen.</p>
+          </div>
+          <div class="box" data-aos="flip-left" data-aos-duration="1100" data-aos-delay="400">
+            <div class="icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="topic">Ausbildung abschließen</div>
+            <p>Eine erfolgreiche Ausbildung zum Fachinformatiker ist mein wichtigstes berufliches Ziel für die nächsten Jahre.</p>
+          </div>
+          <div class="box" data-aos="flip-left" data-aos-duration="1100" data-aos-delay="500">
+            <div class="icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="topic">Teamarbeit meistern</div>
+            <p>Ich möchte in professionellen Teams arbeiten und von erfahrenen Entwicklern lernen können.</p>
+          </div>
+          <div class="box" data-aos="flip-left" data-aos-duration="1100" data-aos-delay="600">
+            <div class="icon">
+              <i class="fas fa-rocket"></i>
+            </div>
+            <div class="topic">Innovative Lösungen finden</div>
+            <p>Kreative und neuartige Lösungen für technische Herausforderungen zu entwickeln ist mein langfristiges Ziel.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="content">
+        <div class="title" data-aos="fade-up" data-aos-duration="1100"><span>Kontaktiere mich</span></div>
+        <div class="text">
+          <div class="topic" data-aos="fade-left" data-aos-duration="1100" data-aos-delay="100">Sie Haben eine Stelle?</div>
+          <p data-aos="fade-right" data-aos-duration="1100" data-aos-delay="200">Ich suche eine Ausbildung im Bereich Informatik, speziell in der Anwendungsentwicklung, um meine Fähigkeiten weiter auszubauen und mich beruflich zu entwickeln. Haben Sie eine passende Stelle?</p>
+        </div>
+        <div class="contact-form-container">
+          <form id="contactForm" class="contact-form">
+              <div id="formAlert" class="form-alert" style="display: none;"></div>
+              
+              <label for="name" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="300">Name</label>
+              <input type="text" id="name" name="name" placeholder="Ihr Name" required data-aos="fade-up" data-aos-duration="1100" data-aos-delay="300">
+    
+              <label for="email" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="400">E-Mail</label>
+              <input type="email" id="email" name="email" placeholder="Ihre E-Mail" required data-aos="fade-up" data-aos-duration="1100" data-aos-delay="400">
+    
+              <label for="phone" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="500">Telefonnummer</label>
+              <input type="tel" id="phone" name="phone" placeholder="Ihre Telefonnummer" required data-aos="fade-up" data-aos-duration="1100" data-aos-delay="500">
+    
+              <label for="message" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="600">Nachricht</label>
+              <textarea id="message" name="message" rows="5" placeholder="Ihre Nachricht" required data-aos="fade-up" data-aos-duration="1100" data-aos-delay="600"></textarea>
+    
+              <button type="submit" class="contact-btn" data-aos="zoom-in-up" data-aos-duration="1100" data-aos-delay="700">
+                <span class="btn-text">Nachricht senden</span>
+                <span class="btn-loader" style="display: none;">
+                  <i class="fas fa-spinner fa-spin"></i>
+                </span>
+              </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  
+    <footer >
+      <div class="text">
+        <span>Erstellt von <a href="#">Can Mustafa</a> | &#169; 2025 Alle Rechte vorbehalten</span>
+      </div>
+    </footer>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({offset:0});
+    </script>
+    <script>
+      function hamburg(){
+        const navbar = document.querySelector(".dropdown");
+        navbar.style.transform = 'translateY(0px)';
+      }
+      function cancel(){
+        const navbar = document.querySelector(".dropdown");
+        navbar.style.transform = 'translateY(-500px)';
+      }
+
+      // Neuer Code für das Sprachmenü
+      document.addEventListener('DOMContentLoaded', function() {
+        const languageSwitcherBtn = document.getElementById('languageSwitcherBtn');
+        const languageOptions = document.getElementById('languageOptions');
+        
+        // Funktion zum Öffnen/Schließen des Menüs beim Klicken
+        languageSwitcherBtn.addEventListener('click', function(event) {
+          event.stopPropagation(); // Verhindert, dass das Klick-Event zum Dokument weitergeleitet wird
+          languageOptions.classList.toggle('show');
+        });
+        
+        // Schließt das Menü, wenn irgendwo anders auf die Seite geklickt wird
+        document.addEventListener('click', function(event) {
+          if (!languageSwitcherBtn.contains(event.target)) {
+            languageOptions.classList.remove('show');
+          }
+        });
+        
+        // Verhindert, dass das Menü geschlossen wird, wenn man darauf klickt
+        languageOptions.addEventListener('click', function(event) {
+          // Wir lassen das standard Link-Verhalten zu, aber stoppen das Event-Bubbling
+          event.stopPropagation();
+        });
+      });
+    </script>
+  </body>
+</html>

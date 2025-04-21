@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>My Projects</title>
+    <!-- AOS Animation Library -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Google Fonts - Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Modern Color Scheme - Purple/Blue Gradient Theme */
+            --primary-color: #7e57c2; /* Purple */
+            --primary-color-light: #b085f5;
+            --secondary-color: #448aff; /* Blue */
+            --accent-color: #ff5252; /* Red accent for highlights */
+            --background-dark: #121212;
+            --background-card: #1e1e1e;
+            --text-primary: #ffffff;
+            --text-secondary: #b3b3b3;
+            --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            --gradient-hover: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            --font-family: 'Poppins', 'Segoe UI', sans-serif;
+            --border-radius: 12px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: var(--font-family);
+        }
+        
+        body {
+            background-color: var(--background-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            font-weight: 300;
+        }
+        
+        /* Modern Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--gradient-primary);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gradient-hover);
+        }
+        
+        header {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: var(--text-primary);
+            text-align: center;
+            padding: 3rem 1rem;
+            border-bottom: 2px solid var(--primary-color);
+            background: radial-gradient(circle at top right, rgba(126, 87, 194, 0.1), transparent 70%),
+                        radial-gradient(circle at bottom left, rgba(68, 138, 255, 0.1), transparent 70%);
+        }
+        
+        .title {
+            margin-bottom: 2rem;
+        }
+        
+        .title span {
+            font-size: 2.5rem;
+            font-weight: bold;
+            position: relative;
+            padding-bottom: 10px;
+            color: var(--text-primary);
+        }
+        
+        .title span::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: 10px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .project-card {
+            background: var(--background-card);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #333;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(126, 87, 194, 0.15);
+            border: 1px solid var(--primary-color);
+        }
+        
+        .project-img {
+            width: 100%;
+            height: 200px;
+            background-color: #222;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover .project-img img {
+            transform: scale(1.05);
+        }
+        
+        .project-info {
+            padding: 1.5rem;
+        }
+        
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color-light);
+        }
+        
+        .project-description {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .project-technologies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .tech-tag {
+            background-color: #333;
+            padding: 0.3rem 0.7rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            border: 1px solid #444;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .project-links a {
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        
+        .live-link {
+            background: var(--gradient-primary);
+            color: white;
+        }
+        
+        .live-link:hover {
+            background: var(--gradient-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(126, 87, 194, 0.3);
+        }
+        
+        .code-link {
+            background-color: #333;
+            color: var(--text-primary);
+            border: 1px solid #444;
+        }
+        
+        .code-link:hover {
+            background-color: #444;
+            transform: translateY(-2px);
+        }
+        
+        button {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(126, 87, 194, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-hover);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+        
+        button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(126, 87, 194, 0.5);
+        }
+        
+        button:hover::before {
+            opacity: 1;
+        }
+        
+        .button {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .button a {
+            text-decoration: none;
+        }
+        
+        .home-button {
+            margin-top: 1.5rem;
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: rgba(30, 30, 30, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--primary-color);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .nav-logo {
+            color: var(--primary-color-light);
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-decoration: none;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        /* Updated Language switcher styles */
+        .language-switcher {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .language-container {
+            position: relative;
+            margin-left: 20px;
+        }
+        
+        .language-switcher .flag {
+            margin-right: 5px;
+            font-size: 16px;
+        }
+        
+        .language-switcher .current-lang {
+            display: flex;
+            align-items: center;
+            color: var(--text-primary);
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.2s ease;
+        }
+        
+        .language-switcher .current-lang:hover {
+            background-color: #3a3a3a;
+        }
+        
+        .language-options {
+            display: none;
+            position: absolute;
+            background-color: #2a2a2a;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 100;
+            border-radius: 8px;
+            overflow: hidden;
+            top: 100%;
+            right: 0;
+            margin-top: 5px;
+            min-width: 120px;
+        }
+        
+        .language-options.show {
+            display: block;
+            animation: fadeIn 0.2s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .language-options a {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            transition: all 0.2s ease;
+        }
+        
+        .language-options a:hover {
+            background-color: #3a3a3a;
+            color: var(--primary-color-light);
+        }
+        
+        .language-options .flag {
+            margin-right: 8px;
+        }
+        
+        .nav-right {
+            display: flex;
+            align-items: center;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .modal.show {
+            opacity: 1;
+        }
+        
+        .modal-content {
+            background-color: var(--background-card);
+            margin: 15% auto;
+            padding: 2rem;
+            border: 1px solid var(--primary-color);
+            width: 80%;
+            max-width: 500px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 0 25px rgba(126, 87, 194, 0.2);
+            transform: translateY(-50px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .modal.show .modal-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #333;
+            padding-bottom: 1rem;
+        }
+        
+        .modal-title {
+            color: var(--primary-color-light);
+            font-size: 1.5rem;
+        }
+        
+        .close {
+            color: var(--text-secondary);
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+        
+        .close:hover {
+            color: var(--primary-color-light);
+        }
+        
+        .modal-body {
+            margin-bottom: 1.5rem;
+        }
+        
+        .modal-footer {
+            text-align: center;
+        }
+        
+        .construction-icon {
+            font-size: 40px;
+            color: var(--primary-color-light);
+            margin-bottom: 1rem;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .upload-container {
+            background-color: #2a2a2a;
+            padding: 1.5rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+            border: 1px dashed #444;
+            text-align: center;
+        }
+        
+        .upload-label {
+            cursor: pointer;
+            display: block;
+            margin-bottom: 1rem;
+        }
+        
+        .upload-input {
+            display: none;
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            header {
+                padding: 2rem 1rem;
+            }
+            
+            .title span {
+                font-size: 2rem;
+            }
+            
+            .modal-content {
+                width: 95%;
+                margin: 30% auto;
+            }
+            
+            .navigation {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .nav-right {
+                margin-top: 15px;
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .language-container {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navigation">
+        <a href="index.html" class="nav-logo">My Python Portfolio</a>
+        <div class="nav-right">
+            <a href="index.html">
+                <button>Back to Home</button>
+            </a>
+            <div class="language-container" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="600">
+                <div class="language-switcher">
+                    <div class="current-lang" id="language-toggle">
+                        <span class="flag">🇬🇧</span>
+                        <span>EN</span>
+                        <i class="fas fa-chevron-down" style="margin-left: 5px; font-size: 12px;"></i>
+                    </div>
+                    <div class="language-options" id="language-dropdown">
+                        <a href="projekte.html"><span class="flag">🇩🇪</span> Deutsch</a>
+                        <a href="projects.html" class="active"><span class="flag">🇬🇧</span> English</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <header>
+        <div class="title" data-aos="fade-up" data-aos-duration="1100">
+            <span>My Projects</span>
+        </div>
+        <p data-aos="fade-up" data-aos-duration="1100" data-aos-delay="200">A collection of my first Python projects as a beginner</p>
+        <div class="home-button" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="300">
+            <a href="index.html">
+                <button>Home</button>
+            </a>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card" data-aos="fade-up" data-aos-duration="1100">
+                <div class="project-img">
+                    <img src="/api/placeholder/400/200" alt="Number Guessing Game" id="img-numberguess">
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">Number Guessing Game</h3>
+                    <p class="project-description">A simple game where the computer selects a number between 1 and 100 and the player needs to guess it.</p>
+                    <div class="project-technologies">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Random Module</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="live-link" data-project="numberguess">Live Demo</a>
+                        <a href="https://github.com/CanMus04/Number-Guessing-Game" target="_blank" class="code-link">Code</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 2 -->
+            <div class="project-card" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="100">
+                <div class="project-img">
+                    <img src="/api/placeholder/400/200" alt="Calculator" id="img-calculator">
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">Calculator</h3>
+                    <p class="project-description">A simple calculator that can perform basic operations (addition, subtraction, multiplication, division).</p>
+                    <div class="project-technologies">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Functions</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="live-link" data-project="calculator">Live Demo</a>
+                        <a href="https://github.com/CanMus04/Simple-Calculator" target="_blank" class="code-link">Code</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 3 -->
+            <div class="project-card" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="200">
+                <div class="project-img">
+                    <img src="/api/placeholder/400/200" alt="To-Do List" id="img-todo">
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">To-Do List</h3>
+                    <p class="project-description">A simple console application for managing tasks (add, complete, delete).</p>
+                    <div class="project-technologies">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Lists</span>
+                        <span class="tech-tag">Loops</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="live-link" data-project="todo">Live Demo</a>
+                        <a href="https://github.com/CanMus04/To-Do-List" target="_blank" class="code-link">Code</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 4 -->
+            <div class="project-card" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="300">
+                <div class="project-img">
+                    <img src="/api/placeholder/400/200" alt="Weather Query" id="img-weather">
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">Weather Query</h3>
+                    <p class="project-description">A program that displays the current temperature and weather conditions for an entered city.</p>
+                    <div class="project-technologies">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Requests</span>
+                        <span class="tech-tag">API</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="live-link" data-project="weather">Live Demo</a>
+                        <a href="https://github.com/CanMus04/Weather-Application" target="_blank" class="code-link">Code</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 5 -->
+            <div class="project-card" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="400">
+                <div class="project-img">
+                    <img src="/api/placeholder/400/200" alt="Password Generator" id="img-password">
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">Password Generator</h3>
+                    <p class="project-description">A program that creates random, secure passwords with various options (length, special characters, numbers).</p>
+                    <div class="project-technologies">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Random</span>
+                        <span class="tech-tag">String</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="live-link" data-project="password">Live Demo</a>
+                        <a href="https://github.com/CanMus04/Password-Generator" target="_blank" class="code-link">Code</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 6 -->
+            <div class="project-card" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="500">
+                <div class="project-img">
+                    <img src="/api/placeholder/400/200" alt="Rock Paper Scissors" id="img-rps">
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">Rock Paper Scissors</h3>
+                    <p class="project-description">The classic game "Rock, Paper, Scissors" against the computer with score tracking.</p>
+                    <div class="project-technologies">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Random</span>
+                        <span class="tech-tag">Conditionals</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="live-link" data-project="rps">Live Demo</a>
+                        <a href="https://github.com/CanMus04/Rock-Paper-scissors-Game" target="_blank" class="code-link">Code</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="button" data-aos="zoom-out" data-aos-duration="1100" data-aos-delay="100">
+            <a href="index.html">
+                <button>Back to Main Page</button>
+            </a>
+        </div>
+    </div>
+    
+    <!-- Modal for "Under Construction" -->
+    <div id="processing-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Under Construction</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div style="text-align: center;">
+                    <div class="construction-icon">🚧</div>
+                    <p>This demo is still being developed.</p>
+                    <p>The live demo will be available soon!</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="close-modal-btn">Understood</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Image Upload Modal -->
+    <div id="upload-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Upload Image</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Choose an image for your project:</p>
+                <div class="upload-container">
+                    <label class="upload-label">
+                        <span>Select an image or drag it here</span>
+                        <input type="file" class="upload-input" accept="image/*">
+                    </label>
+                    <p>Supported formats: JPG, PNG, GIF (max. 5MB)</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="upload-btn">Upload</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+        
+        // Project names for display in modal
+        const projectNames = {
+            'numberguess': 'Number Guessing Game',
+            'calculator': 'Calculator',
+            'todo': 'To-Do List',
+            'weather': 'Weather Query',
+            'password': 'Password Generator',
+            'rps': 'Rock Paper Scissors'
+        };
+        
+        // Modal elements
+        const modal = document.getElementById("processing-modal");
+        const uploadModal = document.getElementById("upload-modal");
+        const closeButtons = document.getElementsByClassName("close");
+        const closeModalBtn = document.getElementById("close-modal-btn");
+        const uploadBtn = document.getElementById("upload-btn");
+        
+        // Store current project for modal title
+        let currentProject = '';
+        
+        // Event listeners for "Live Demo" links
+        document.querySelectorAll('.live-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                currentProject = this.getAttribute('data-project');
+                
+                // Show project name in modal title
+                const modalTitle = document.querySelector('.modal-title');
+                if (projectNames[currentProject]) {
+                    modalTitle.textContent = projectNames[currentProject] + " - Under Construction";
+                } else {
+                    modalTitle.textContent = "Project Under Construction";
+                }
+                
+                // Show modal
+                modal.style.display = "block";
+                setTimeout(() => {
+                    modal.classList.add("show");
+                }, 10);
+            });
+        });
+        
+        // Close modal when clicking X
+        Array.from(closeButtons).forEach(btn => {
+            btn.addEventListener('click', function() {
+                closeModal(this.closest('.modal'));
+            });
+        });
+        
+        // Close modal with "Understood" button
+        closeModalBtn.addEventListener('click', function() {
+            closeModal(modal);
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                closeModal(modal);
+            } else if (event.target === uploadModal) {
+                closeModal(uploadModal);
+            }
+        });
+        
+        // Function to close modals with animation
+        function closeModal(modalElement) {
+            modalElement.classList.remove("show");
+            setTimeout(() => {
+                modalElement.style.display = "none";
+            }, 300);
+        }
+        
+        // Image upload functionality
+        document.querySelectorAll('.project-img').forEach(imgContainer => {
+            imgContainer.addEventListener('dblclick', function() {
+                // Extract image ID
+                const imgId = this.querySelector('img').id;
+                const projectKey = imgId.replace('img-', '');
+                
+                // Open modal
+                uploadModal.style.display = "block";
+                setTimeout(() => {
+                    uploadModal.classList.add("show");
+                }, 10);
+                
+                // Upload button functionality (simulated here)
+                uploadBtn.onclick = function() {
+                    alert('In a real application, the image would be uploaded now.');
+                    closeModal(uploadModal);
+                };
+            });
+        });
+        
+        // Replace placeholder images with project-specific images
+        const imagePlaceholders = {
+            'numberguess': 'https://i.pinimg.com/236x/d0/cb/6a/d0cb6aeabb07ebf5420eb6b45998bc21.jpg',
+            'calculator': 'https://i.pinimg.com/236x/8a/c7/cb/8ac7cb1b64aefa535318143684c75993.jpg',
+            'todo': 'https://i.pinimg.com/236x/24/86/4f/24864fa604c48845ee9e64ebc6441c3c.jpg',
+            'weather': 'https://i.pinimg.com/736x/3a/84/ea/3a84ea8d56a5ee0870eaabe3d5aa4046.jpg',
+            'password': 'https://i.pinimg.com/736x/e4/56/99/e45699f5b647dd32bafefa253c865cf0.jpg',
+            'rps': 'https://i.pinimg.com/736x/e4/56/99/e45699f5b647dd32bafefa253c865cf0.jpg'
+        };
+        
+        // Language switcher functionality
+        const languageToggle = document.getElementById('language-toggle');
+        const languageDropdown = document.getElementById('language-dropdown');
+        
+        languageToggle.addEventListener('click', function() {
+            languageDropdown.classList.toggle('show');
+        });
+        
+        // Close language dropdown when clicking outside
+        window.addEventListener('click', function(event) {
+            if (!event.target.closest('.language-switcher')) {
+                languageDropdown.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>

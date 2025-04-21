@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Meine Projekte</title>
+    <!-- AOS Animation Library -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Google Fonts - Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Modern Color Scheme - Purple/Blue Gradient Theme */
+            --primary-color: #7e57c2; /* Purple */
+            --primary-color-light: #b085f5;
+            --secondary-color: #448aff; /* Blue */
+            --accent-color: #ff5252; /* Red accent for highlights */
+            --background-dark: #121212;
+            --background-card: #1e1e1e;
+            --text-primary: #ffffff;
+            --text-secondary: #b3b3b3;
+            --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            --gradient-hover: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            --font-family: 'Poppins', 'Segoe UI', sans-serif;
+            --border-radius: 12px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: var(--font-family);
+        }
+        
+        body {
+            background-color: var(--background-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            font-weight: 300;
+        }
+        
+        /* Modern Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--gradient-primary);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gradient-hover);
+        }
+        
+        header {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: var(--text-primary);
+            text-align: center;
+            padding: 3rem 1rem;
+            border-bottom: 2px solid var(--primary-color);
+            background: radial-gradient(circle at top right, rgba(126, 87, 194, 0.1), transparent 70%),
+                        radial-gradient(circle at bottom left, rgba(68, 138, 255, 0.1), transparent 70%);
+        }
+        
+        .title {
+            margin-bottom: 2rem;
+        }
+        
+        .title span {
+            font-size: 2.5rem;
+            font-weight: bold;
+            position: relative;
+            padding-bottom: 10px;
+            color: var(--text-primary);
+        }
+        
+        .title span::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: 10px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .project-card {
+            background: var(--background-card);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #333;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(126, 87, 194, 0.15);
+            border: 1px solid var(--primary-color);
+        }
+        
+        .project-img {
+            width: 100%;
+            height: 200px;
+            background-color: #222;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover .project-img img {
+            transform: scale(1.05);
+        }
+        
+        .project-info {
+            padding: 1.5rem;
+        }
+        
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color-light);
+        }
+        
+        .project-description {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .project-technologies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .tech-tag {
+            background-color: #333;
+            padding: 0.3rem 0.7rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            border: 1px solid #444;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .project-links a {
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        
+        .live-link {
+            background: var(--gradient-primary);
+            color: white;
+        }
+        
+        .live-link:hover {
+            background: var(--gradient-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(126, 87, 194, 0.3);
+        }
+        
+        .code-link {
+            background-color: #333;
+            color: var(--text-primary);
+            border: 1px solid #444;
+        }
+        
+        .code-link:hover {
+            background-color: #444;
+            transform: translateY(-2px);
+        }
+        
+        button {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(126, 87, 194, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-hover);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+        
+        button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(126, 87, 194, 0.5);
+        }
+        
+        button:hover::before {
+            opacity: 1;
+        }
+        
+        .button {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .button a {
+            text-decoration: none;
+        }
+        
+        .home-button {
+            margin-top: 1.5rem;
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: rgba(30, 30, 30, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--primary-color);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .nav-logo {
+            color: var(--primary-color-light);
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-decoration: none;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        /* Language switcher styles - UPDATED */
+        .language-container {
+            position: relative;
+            margin-left: 20px;
+        }
+        
+        .language-switcher {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.2s ease;
+        }
+        
+        .language-switcher:hover {
+            background-color: #2a2a2a;
+        }
+        
+        .language-switcher .flag {
+            margin-right: 5px;
+            font-size: 16px;
+        }
+        
+        .language-switcher .current-lang {
+            display: flex;
+            align-items: center;
+            color: var(--text-primary);
+        }
+        
+        .language-options {
+            display: none;
+            position: absolute;
+            background-color: #2a2a2a;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 100;
+            border-radius: 8px;
+            overflow: hidden;
+            top: 100%;
+            right: 0;
+            margin-top: 5px;
+            min-width: 120px;
+        }
+        
+        .language-options.show {
+            display: block;
+        }
+        
+        .language-options a {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            transition: all 0.2s ease;
+        }
+        
+        .language-options a:hover {
+            background-color: #3a3a3a;
+            color: var(--primary-color-light);
+        }
+        
+        .language-options .flag {
+            margin-right: 8px;
+            font-size: 16px;
+        }
+        
+        .nav-right {
+            display: flex;
+            align-items: center;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .modal.show {
+            opacity: 1;
+        }
+        
+        .modal-content {
+            background-color: var(--background-card);
+            margin: 15% auto;
+            padding: 2rem;
+            border: 1px solid var(--primary-color);
+            width: 80%;
+            max-width: 500px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 0 25px rgba(126, 87, 194, 0.2);
+            transform: translateY(-50px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .modal.show .modal-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #333;
+            padding-bottom: 1rem;
+        }
+        
+        .modal-title {
+            color: var(--primary-color-light);
+            font-size: 1.5rem;
+        }
+        
+        .close {
+            color: var(--text-secondary);
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+        
+        .close:hover {
+            color: var(--primary-color-light);
+        }
+        
+        .modal-body {
+            margin-bottom: 1.5rem;
+        }
+        
+        .modal-footer {
+            text-align: center;
+        }
+        
+        .construction-icon {
+            font-size: 40px;
+            color: var(--primary-color-light);
+            margin-bottom: 1rem;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .upload-container {
+            background-color: #2a2a2a;
+            padding: 1.5rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+            border: 1px dashed #444;
+            text-align: center;
+        }
+        
+        .upload-label {
+            cursor: pointer;
+            display: block;
+            margin-bottom: 1rem;
+        }
+        
+        .upload-input {
+            display: none;
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            header {
+                padding: 2rem 1rem;
+            }
+            
+            .title span {
+                font-size: 2rem;
+            }
+            
+            .modal-content {
+                width: 95%;
+                margin: 30% auto;
+            }
+            
+            .navigation {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .nav-right {
+                margin-top: 15px;
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .language-container {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navigation">
+        <a href="index.html" class="nav-logo">Mein Python Portfolio</a>
+        <div class="nav-right">
+            <a href="index.html">
+                <button>Zurück zur Startseite</button>
+            </a>
+            <div class="language-container" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="600">
+                <div class="language-switcher" id="languageSwitcher">
+                    <div class="current-lang">
+                        <span class="flag">🇩🇪</span>
+                        <span>DE</span>
+                        <i class="fas fa-chevron-down" style="margin-left: 5px; font-size: 12px;"></i>
+                    </div>
+                </div>
+                <div class="language-options" id="languageOptions">
+                    <a href="projekte.html" class="active"><span class="flag">🇩🇪</span> Deutsch</a>
+                    <a href="projects-en.html"><span class="flag">🇬🇧</span> English</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <header>
+        <div class="title" data-aos="fade-up" data-aos-duration="1100">
+            <span>Meine Projekte</span>
+        </div>
+        <p data-aos="fade-up" data-aos-duration="1100" data-aos-delay="200">Eine Sammlung meiner ersten Python-Projekte als Anfänger</p>
+        <div class="home-button" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="300">
+            <a href="index.html">
+                <button>Startseite</button>
+            </a>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="projects-grid">
+            <!-- Projekt 1 -->
+            <div class="project-card" data-aos="fade-up" data-aos-duration="1100">
+                <div class="project-img">
+                    <img src="https://i.pinimg.com/236x/d0/cb/6a/d0cb6aeabb07ebf5420eb6b45998bc21.jpg" alt="Zahlenraten-Spiel" id="img-zahlenraten">
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">Zahlenraten-Spiel</h3>
+                    <p class="project-description">Ein einfaches Spiel, bei dem der Computer eine Zahl zwischen 1 und 100 auswählt und der Spieler sie erraten muss.</p>
+                    <div class="project-technologies">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Random-Modul</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="live-link" data-project="zahlenraten">Live Demo</a>
+                        <a href="https://github.com/CanMus04/Number-Guessing-Game" target="_blank" class="code-link">Code</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Projekt 2 -->
+            <div class="project-card" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="100">
+                <div class="project-img">
+                    <img src="https://i.pinimg.com/736x/8a/c7/cb/8ac7cb1b64aefa535318143684c75993.jpg" alt="Taschenrechner" id="img-taschenrechner">
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">Taschenrechner</h3>
+                    <p class="project-description">Ein einfacher Taschenrechner, der Grundrechenarten (Addition, Subtraktion, Multiplikation, Division) durchführen kann.</p>
+                    <div class="project-technologies">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Funktionen</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="live-link" data-project="taschenrechner">Live Demo</a>
+                        <a href="https://github.com/CanMus04/Simple-Calculator" target="_blank" class="code-link">Code</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Projekt 3 -->
+            <div class="project-card" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="200">
+                <div class="project-img">
+                    <img src="https://i.pinimg.com/236x/24/86/4f/24864fa604c48845ee9e64ebc6441c3c.jpg" alt="To-Do Liste" id="img-todo">
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">To-Do Liste</h3>
+                    <p class="project-description">Eine einfache Konsolen-Anwendung zur Verwaltung von Aufgaben (hinzufügen, erledigen, löschen).</p>
+                    <div class="project-technologies">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Listen</span>
+                        <span class="tech-tag">Schleifen</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="live-link" data-project="todo">Live Demo</a>
+                        <a href="https://github.com/CanMus04/To-Do-List" target="_blank" class="code-link">Code</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Projekt 4 -->
+            <div class="project-card" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="300">
+                <div class="project-img">
+                    <img src="https://i.pinimg.com/236x/99/e1/7a/99e17ab58f508c85d675be40f7e05a23.jpg" alt="Wetter-Abfrage" id="img-wetter">
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">Wetter-Abfrage</h3>
+                    <p class="project-description">Ein Programm, das die aktuelle Temperatur und Wetterbedingungen für eine eingegebene Stadt anzeigt.</p>
+                    <div class="project-technologies">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Requests</span>
+                        <span class="tech-tag">API</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="live-link" data-project="wetter">Live Demo</a>
+                        <a href="https://github.com/CanMus04/Weather-Application" target="_blank" class="code-link">Code</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Projekt 5 -->
+            <div class="project-card" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="400">
+                <div class="project-img">
+                    <img src="https://i.pinimg.com/236x/e4/56/99/e45699f5b647dd32bafefa253c865cf0.jpg" alt="Passwort Generator" id="img-password">
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">Passwort Generator</h3>
+                    <p class="project-description">Ein Programm, das zufällige, sichere Passwörter mit verschiedenen Optionen (Länge, Sonderzeichen, Zahlen) erstellt.</p>
+                    <div class="project-technologies">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Random</span>
+                        <span class="tech-tag">String</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="live-link" data-project="password">Live Demo</a>
+                        <a href="https://github.com/CanMus04/Password-Generator" target="_blank" class="code-link">Code</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Projekt 6 -->
+            <div class="project-card" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="500">
+                <div class="project-img">
+                    <img src="https://i.pinimg.com/236x/41/a9/8f/41a98fb3cef655eb56658464a4112f15.jpg" alt="Stein-Schere-Papier" id="img-ssp">
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">Stein-Schere-Papier</h3>
+                    <p class="project-description">Das klassische Spiel "Stein, Schere, Papier" gegen den Computer mit Punktezählung.</p>
+                    <div class="project-technologies">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Random</span>
+                        <span class="tech-tag">Bedingungen</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="live-link" data-project="ssp">Live Demo</a>
+                        <a href="https://github.com/CanMus04/Rock-Paper-scissors-Game" target="_blank" class="code-link">Code</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="button" data-aos="zoom-out" data-aos-duration="1100" data-aos-delay="100">
+            <a href="index.html">
+                <button>Zurück zur Hauptseite</button>
+            </a>
+        </div>
+    </div>
+    
+    <!-- Modal für "In Bearbeitung" -->
+    <div id="processing-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">In Bearbeitung</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div style="text-align: center;">
+                    <div class="construction-icon">🚧</div>
+                    <p>Diese Demo wird gerade noch entwickelt.</p>
+                    <p>Die Live-Demo wird in Kürze verfügbar sein!</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="close-modal-btn">Verstanden</button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+        
+        // Projektnamen für die Anzeige im Modal
+        const projectNames = {
+            'zahlenraten': 'Zahlenraten-Spiel',
+            'taschenrechner': 'Taschenrechner',
+            'todo': 'To-Do Liste',
+            'wetter': 'Wetter-Abfrage',
+            'password': 'Passwort Generator',
+            'ssp': 'Stein-Schere-Papier'
+        };
+        
+        // Modal-Elemente
+        const modal = document.getElementById("processing-modal");
+        const uploadModal = document.getElementById("upload-modal");
+        const closeButtons = document.getElementsByClassName("close");
+        const closeModalBtn = document.getElementById("close-modal-btn");
+        const uploadBtn = document.getElementById("upload-btn");
+        
+        // Sprachmenü-Elemente
+        const languageSwitcher = document.getElementById("languageSwitcher");
+        const languageOptions = document.getElementById("languageOptions");
+        
+        // Event-Listener für Sprachmenü - Toggle beim Klick
+        languageSwitcher.addEventListener('click', function(e) {
+            e.stopPropagation(); // Verhindert Bubble-Up des Events
+            languageOptions.classList.toggle('show');
+        });
+        
+        // Event-Listener zum Schließen des Sprachmenüs beim Klick außerhalb
+        document.addEventListener('click', function(e) {
+            if (!languageSwitcher.contains(e.target) && !languageOptions.contains(e.target)) {
+                languageOptions.classList.remove('show');
+            }
+        });
+        
+        // Sprachauswahl-Links verarbeiten
+        document.querySelectorAll('.language-options a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Das Menü schließt sich automatisch, da wir zu einer neuen Seite navigieren
+                // Kein e.preventDefault() hier, damit die Navigation stattfindet
+            });
+        });
+        
+        // Aktuelles Projekt für Modal-Titel speichern
+        let currentProject = '';
+        
+        // Event-Listener für "Live Demo"-Links
+        document.querySelectorAll('.live-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                currentProject = this.getAttribute('data-project');
+                
+                // Projekt-Namen im Modal-Titel anzeigen
+                const modalTitle = document.querySelector('.modal-title');
+                if (projectNames[currentProject]) {
+                    modalTitle.textContent = projectNames[currentProject] + " - In Bearbeitung";
+                } else {
+                    modalTitle.textContent = "Projekt in Bearbeitung";
+                }
+                
+                // Modal anzeigen
+                modal.style.display = "block";
+                setTimeout(() => {
+                    modal.classList.add("show");
+                }, 10);
+            });
+        });
+        
+        // Modal schließen wenn auf X geklickt wird
+        Array.from(closeButtons).forEach(btn => {
+            btn.addEventListener('click', function() {
+                closeModal(this.closest('.modal'));
+            });
+        });
+        
+        // Modal schließen mit "Verstanden"-Button
+        closeModalBtn.addEventListener('click', function() {
+            closeModal(modal);
+        });
+
+        // Modal schließen wenn außerhalb geklickt wird
+window.addEventListener('click', function(e) {
+    if (e.target == modal) {
+        closeModal(modal);
+    }
+    if (e.target == uploadModal) {
+        closeModal(uploadModal);
+    }
+});
+
+// Funktion zum Schließen des Modals mit Animation
+function closeModal(modalElement) {
+    modalElement.classList.remove("show");
+    setTimeout(() => {
+        modalElement.style.display = "none";
+    }, 300);
+}
+
+// Upload-Button Event-Listener
+uploadBtn.addEventListener('click', function() {
+    // Hier könnte der Upload-Code stehen
+    closeModal(uploadModal);
+    alert('Upload-Funktion noch nicht implementiert');
+});
+
+// Placeholder-Bilder laden
+document.addEventListener('DOMContentLoaded', function() {
+    // Hier könnte Code stehen, um echte Bilder zu laden
+    // Aktuell werden Platzhalterbilder verwendet
+});
+
+window.addEventListener('click', function(e) {
+    if (e.target == modal) {
+        closeModal(modal);
+    }
+    if (e.target == uploadModal) {
+        closeModal(uploadModal);
+    }
+});
+
+// Funktion zum Schließen des Modals mit Animation
+function closeModal(modalElement) {
+    modalElement.classList.remove("show");
+    setTimeout(() => {
+        modalElement.style.display = "none";
+    }, 300);
+}
+
+// Upload-Button Event-Listener
+uploadBtn.addEventListener('click', function() {
+    // Hier könnte der Upload-Code stehen
+    closeModal(uploadModal);
+    alert('Upload-Funktion noch nicht implementiert');
+});
+
+// Placeholder-Bilder laden
+document.addEventListener('DOMContentLoaded', function() {
+    // Hier könnte Code stehen, um echte Bilder zu laden
+    // Aktuell werden Platzhalterbilder verwendet
+});
+
+// Event-Listener für ESC-Taste zum Schließen der Modals
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        if (modal.style.display === 'block') {
+            closeModal(modal);
+        }
+        if (uploadModal.style.display === 'block') {
+            closeModal(uploadModal);
+        }
+    }
+});
+
+// Datei-Upload-Handling
+const uploadInput = document.querySelector('.upload-input');
+uploadInput.addEventListener('change', function(e) {
+    if (this.files && this.files[0]) {
+        // Datei-Handling-Logik hier
+        const file = this.files[0];
+        if (file.size > 5 * 1024 * 1024) { // 5MB Limit
+            alert('Die Datei ist zu groß! Bitte wähle eine Datei unter 5MB.');
+            return;
+        }
+        
+        // Hier könnte man einen Vorschau-Code hinzufügen
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            // Vorschaubild aktualisieren oder andere Aktionen
+        };
+        reader.readAsDataURL(file);
+    }
+});
+
+// Drag & Drop-Funktionalität für Upload
+const uploadContainer = document.querySelector('.upload-container');
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+    uploadContainer.addEventListener(eventName, preventDefaults, false);
+});
+
+function preventDefaults(e) {
+    e.preventDefault();
+    e.stopPropagation();
+}
+
+['dragenter', 'dragover'].forEach(eventName => {
+    uploadContainer.addEventListener(eventName, highlight, false);
+});
+
+['dragleave', 'drop'].forEach(eventName => {
+    uploadContainer.addEventListener(eventName, unhighlight, false);
+});
+
+function highlight() {
+    uploadContainer.classList.add('highlight');
+}
+
+function unhighlight() {
+    uploadContainer.classList.remove('highlight');
+}
+
+uploadContainer.addEventListener('drop', handleDrop, false);
+
+function handleDrop(e) {
+    const dt = e.dataTransfer;
+    const files = dt.files;
+    
+    if (files && files[0]) {
+        uploadInput.files = files;
+        // Trigger change-Event
+        const event = new Event('change');
+        uploadInput.dispatchEvent(event);
+    }
+}
+</script>
+</body>
+</html>
