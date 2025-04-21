@@ -141,7 +141,7 @@
       position: relative;
     }
     
-    /* Adding active class for the menu to stay open */
+    
     .language-options.active {
       display: block;
     }
@@ -164,10 +164,7 @@
       margin-right: 8px;
     }
       
-    /* Remove this hover state which causes the menu to automatically open */
-    /* .language-container:hover .language-options {
-      display: block;
-    } */
+  
 
     .resume-container {
       max-width: 1100px;
@@ -475,7 +472,7 @@
       text-decoration: underline;
     }
 
-    /* Media Queries */
+    
     @media (max-width: 980px) {
       .resume-container {
         padding: 30px;
@@ -581,7 +578,7 @@
 <div class="resume-container">
   <div class="profile-header" data-aos="fade-up" data-aos-duration="1100">
     <div class="profile-photo">
-      <img src="/api/placeholder/400/400" alt="Can Mustafa">
+      <img src="main.png" alt="Can Mustafa">
     </div>
     <div class="profile-info">
       <h1>Can Mustafa</h1>
@@ -631,6 +628,16 @@
       <div class="resume-item-subtitle">Secondary School Certificate in Business and Administration</div>
       <p>Secondary School Certificate (FOR), completed during a hospital stay.</p>
     </div>
+
+    <div class="resume-item">
+      <div class="resume-item-header">
+        <div class="resume-item-title">Freiligrathschule Witten</div>
+        <div class="resume-item-date">07/2021</div>
+      </div>
+      <div class="resume-item-subtitle">Secondary School Certificate after grade 10</div>
+      <p></p>
+    </div>
+
   </section>
 
   <section class="resume-section" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="200">
@@ -652,6 +659,34 @@
       <div class="resume-item-subtitle">Delphinefeinkost in Witten</div>
       <p>3-week school internship</p>
     </div>
+
+    <div class="resume-item">
+      <div class="resume-item-header">
+        <div class="resume-item-title">Retail Salesperson</div>
+        <div class="resume-item-date">05/2022</div>
+      </div>
+      <div class="resume-item-subtitle">Delphinefeinkost in Witten</div>
+      <p>3-week school internship</p>
+    </div>
+    
+    <div class="resume-item">
+      <div class="resume-item-header">
+        <div class="resume-item-title">Retail Salesperson</div>
+        <div class="resume-item-date">06/2021</div>
+      </div>
+      <div class="resume-item-subtitle">Delphinefeinkost in Witten</div>
+      <p>Year-long internship every Wednesday</p>
+    </div>
+    
+    <div class="resume-item">
+      <div class="resume-item-header">
+        <div class="resume-item-title">Retail Salesperson</div>
+        <div class="resume-item-date">05/2020</div>
+      </div>
+      <div class="resume-item-subtitle">Delphinefeinkost in Witten</div>
+      <p>2-week school internship</p>
+    </div>
+
   </section>
 
   <section class="resume-section" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="300">
@@ -858,13 +893,13 @@
 <script>
   AOS.init({offset: 0});
   
-  // Language switcher functionality
+  
   const languageSwitcher = document.getElementById('languageSwitcher');
   const languageOptions = document.getElementById('languageOptions');
   let isMenuOpen = false;
   
   languageSwitcher.addEventListener('click', function(e) {
-    e.stopPropagation(); // Prevent click from bubbling to document
+    e.stopPropagation(); 
     isMenuOpen = !isMenuOpen;
     
     if (isMenuOpen) {
@@ -874,7 +909,7 @@
     }
   });
   
-  // Close menu when clicking outside
+  
   document.addEventListener('click', function(e) {
     if (isMenuOpen && !languageSwitcher.contains(e.target)) {
       languageOptions.classList.remove('active');
