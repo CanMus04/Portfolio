@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>My Projects</title>
-  
+   
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
+   
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -285,7 +285,6 @@
             color: transparent;
         }
         
-      
         .language-switcher {
             display: flex;
             align-items: center;
@@ -363,7 +362,7 @@
             align-items: center;
         }
         
-      
+        
         .modal {
             display: none;
             position: fixed;
@@ -547,10 +546,10 @@
     
     <div class="container">
         <div class="projects-grid">
-           
+             
             <div class="project-card" data-aos="fade-up" data-aos-duration="1100">
                 <div class="project-img">
-                    <img src="https://i.pinimg.com/236x/d0/cb/6a/d0cb6aeabb07ebf5420eb6b45998bc21.jpg" alt="Zahlenraten-Spiel" id="img-zahlenraten">
+                    <img src="/api/placeholder/400/200" alt="Number Guessing Game" id="img-numberguess">
                 </div>
                 <div class="project-info">
                     <h3 class="project-title">Number Guessing Game</h3>
@@ -566,10 +565,10 @@
                 </div>
             </div>
             
-            
+           
             <div class="project-card" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="100">
                 <div class="project-img">
-                    <img src="https://i.pinimg.com/736x/8a/c7/cb/8ac7cb1b64aefa535318143684c75993.jpg" alt="Taschenrechner" id="img-taschenrechner">
+                    <img src="/api/placeholder/400/200" alt="Calculator" id="img-calculator">
                 </div>
                 <div class="project-info">
                     <h3 class="project-title">Calculator</h3>
@@ -585,10 +584,10 @@
                 </div>
             </div>
             
-            
+           
             <div class="project-card" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="200">
                 <div class="project-img">
-                    <img src="https://i.pinimg.com/236x/24/86/4f/24864fa604c48845ee9e64ebc6441c3c.jpg" alt="To-Do Liste" id="img-todo">
+                    <img src="/api/placeholder/400/200" alt="To-Do List" id="img-todo">
                 </div>
                 <div class="project-info">
                     <h3 class="project-title">To-Do List</h3>
@@ -605,10 +604,10 @@
                 </div>
             </div>
             
-            
+           
             <div class="project-card" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="300">
                 <div class="project-img">
-                    <img src="https://i.pinimg.com/236x/99/e1/7a/99e17ab58f508c85d675be40f7e05a23.jpg" alt="Wetter-Abfrage" id="img-wetter">
+                    <img src="/api/placeholder/400/200" alt="Weather Query" id="img-weather">
                 </div>
                 <div class="project-info">
                     <h3 class="project-title">Weather Query</h3>
@@ -625,10 +624,10 @@
                 </div>
             </div>
             
-         
+            
             <div class="project-card" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="400">
                 <div class="project-img">
-                    <img src="https://i.pinimg.com/236x/e4/56/99/e45699f5b647dd32bafefa253c865cf0.jpg" alt="Passwort Generator" id="img-password">
+                    <img src="/api/placeholder/400/200" alt="Password Generator" id="img-password">
                 </div>
                 <div class="project-info">
                     <h3 class="project-title">Password Generator</h3>
@@ -645,10 +644,10 @@
                 </div>
             </div>
             
-           
+            
             <div class="project-card" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="500">
                 <div class="project-img">
-                    <img src="https://i.pinimg.com/236x/41/a9/8f/41a98fb3cef655eb56658464a4112f15.jpg" alt="Stein-Schere-Papier" id="img-rps">
+                    <img src="/api/placeholder/400/200" alt="Rock Paper Scissors" id="img-rps">
                 </div>
                 <div class="project-info">
                     <h3 class="project-title">Rock Paper Scissors</h3>
@@ -673,7 +672,7 @@
         </div>
     </div>
     
-
+    
     <div id="processing-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -720,7 +719,7 @@
     <script>
         AOS.init();
         
-       
+        
         const projectNames = {
             'numberguess': 'Number Guessing Game',
             'calculator': 'Calculator',
@@ -730,23 +729,23 @@
             'rps': 'Rock Paper Scissors'
         };
         
-       
+        
         const modal = document.getElementById("processing-modal");
         const uploadModal = document.getElementById("upload-modal");
         const closeButtons = document.getElementsByClassName("close");
         const closeModalBtn = document.getElementById("close-modal-btn");
         const uploadBtn = document.getElementById("upload-btn");
         
-       
+        
         let currentProject = '';
         
-       
+        
         document.querySelectorAll('.live-link').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 currentProject = this.getAttribute('data-project');
                 
-              
+                
                 const modalTitle = document.querySelector('.modal-title');
                 if (projectNames[currentProject]) {
                     modalTitle.textContent = projectNames[currentProject] + " - Under Construction";
@@ -754,7 +753,7 @@
                     modalTitle.textContent = "Project Under Construction";
                 }
                 
-              
+                
                 modal.style.display = "block";
                 setTimeout(() => {
                     modal.classList.add("show");
@@ -762,19 +761,19 @@
             });
         });
         
-     
+        
         Array.from(closeButtons).forEach(btn => {
             btn.addEventListener('click', function() {
                 closeModal(this.closest('.modal'));
             });
         });
         
-       
+        
         closeModalBtn.addEventListener('click', function() {
             closeModal(modal);
         });
         
-   
+       
         window.addEventListener('click', function(event) {
             if (event.target === modal) {
                 closeModal(modal);
@@ -791,14 +790,14 @@
             }, 300);
         }
         
-     
+        
         document.querySelectorAll('.project-img').forEach(imgContainer => {
             imgContainer.addEventListener('dblclick', function() {
-               
+                
                 const imgId = this.querySelector('img').id;
                 const projectKey = imgId.replace('img-', '');
                 
-               
+                
                 uploadModal.style.display = "block";
                 setTimeout(() => {
                     uploadModal.classList.add("show");
@@ -812,7 +811,7 @@
             });
         });
         
-       
+        
         const imagePlaceholders = {
             'numberguess': 'https://i.pinimg.com/236x/d0/cb/6a/d0cb6aeabb07ebf5420eb6b45998bc21.jpg',
             'calculator': 'https://i.pinimg.com/236x/8a/c7/cb/8ac7cb1b64aefa535318143684c75993.jpg',
@@ -829,7 +828,6 @@
         languageToggle.addEventListener('click', function() {
             languageDropdown.classList.toggle('show');
         });
-        
         
         window.addEventListener('click', function(event) {
             if (!event.target.closest('.language-switcher')) {
