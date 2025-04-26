@@ -5,11 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Meine Projekte</title>
+    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
+            
             --primary-color: #7e57c2; 
             --primary-color-light: #b085f5;
             --secondary-color: #448aff; 
@@ -39,7 +43,7 @@
             font-weight: 300;
         }
         
-
+        
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -354,7 +358,7 @@
             align-items: center;
         }
         
-       
+        
         .modal {
             display: none;
             position: fixed;
@@ -464,7 +468,7 @@
             display: none;
         }
         
-      
+        
         @media (max-width: 768px) {
             .projects-grid {
                 grid-template-columns: 1fr;
@@ -501,7 +505,7 @@
     </style>
 </head>
 <body>
-  
+    
     <nav class="navigation">
         <a href="index.html" class="nav-logo">Mein Python Portfolio</a>
         <div class="nav-right">
@@ -576,7 +580,7 @@
                 </div>
             </div>
             
-            
+           
             <div class="project-card" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="200">
                 <div class="project-img">
                     <img src="https://i.pinimg.com/236x/24/86/4f/24864fa604c48845ee9e64ebc6441c3c.jpg" alt="To-Do Liste" id="img-todo">
@@ -596,7 +600,7 @@
                 </div>
             </div>
             
-            
+           
             <div class="project-card" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="300">
                 <div class="project-img">
                     <img src="https://i.pinimg.com/236x/99/e1/7a/99e17ab58f508c85d675be40f7e05a23.jpg" alt="Wetter-Abfrage" id="img-wetter">
@@ -616,7 +620,7 @@
                 </div>
             </div>
             
-          
+            
             <div class="project-card" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="400">
                 <div class="project-img">
                     <img src="https://i.pinimg.com/236x/e4/56/99/e45699f5b647dd32bafefa253c865cf0.jpg" alt="Passwort Generator" id="img-password">
@@ -636,7 +640,7 @@
                 </div>
             </div>
             
-          
+            
             <div class="project-card" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="500">
                 <div class="project-img">
                     <img src="https://i.pinimg.com/236x/41/a9/8f/41a98fb3cef655eb56658464a4112f15.jpg" alt="Stein-Schere-Papier" id="img-ssp">
@@ -690,7 +694,7 @@
     <script>
         AOS.init();
         
-       
+        
         const projectNames = {
             'zahlenraten': 'Zahlenraten-Spiel',
             'taschenrechner': 'Taschenrechner',
@@ -700,40 +704,41 @@
             'ssp': 'Stein-Schere-Papier'
         };
         
-       
+        
         const modal = document.getElementById("processing-modal");
         const uploadModal = document.getElementById("upload-modal");
         const closeButtons = document.getElementsByClassName("close");
         const closeModalBtn = document.getElementById("close-modal-btn");
         const uploadBtn = document.getElementById("upload-btn");
         
-     
+       
         const languageSwitcher = document.getElementById("languageSwitcher");
         const languageOptions = document.getElementById("languageOptions");
-      
+        
+        
         languageSwitcher.addEventListener('click', function(e) {
             e.stopPropagation(); 
             languageOptions.classList.toggle('show');
         });
         
-        
+    
         document.addEventListener('click', function(e) {
             if (!languageSwitcher.contains(e.target) && !languageOptions.contains(e.target)) {
                 languageOptions.classList.remove('show');
             }
         });
         
-       
+        
         document.querySelectorAll('.language-options a').forEach(link => {
             link.addEventListener('click', function(e) {
-               
+              
             });
         });
         
-      
+        
         let currentProject = '';
         
-    
+      
         document.querySelectorAll('.live-link').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -755,7 +760,7 @@
             });
         });
         
-       
+
         Array.from(closeButtons).forEach(btn => {
             btn.addEventListener('click', function() {
                 closeModal(this.closest('.modal'));
@@ -767,7 +772,7 @@
             closeModal(modal);
         });
 
-      
+        
 window.addEventListener('click', function(e) {
     if (e.target == modal) {
         closeModal(modal);
@@ -787,14 +792,14 @@ function closeModal(modalElement) {
 
 
 uploadBtn.addEventListener('click', function() {
-   
+    
     closeModal(uploadModal);
     alert('Upload-Funktion noch nicht implementiert');
 });
 
 
 document.addEventListener('DOMContentLoaded', function() {
- 
+    
 });
 
 window.addEventListener('click', function(e) {
@@ -820,7 +825,10 @@ uploadBtn.addEventListener('click', function() {
     closeModal(uploadModal);
     alert('Upload-Funktion noch nicht implementiert');
 });
-document.addEventListener('DOMContentLoaded', function() {  
+
+
+document.addEventListener('DOMContentLoaded', function() {
+   
 });
 
 
@@ -839,9 +847,9 @@ document.addEventListener('keydown', function(e) {
 const uploadInput = document.querySelector('.upload-input');
 uploadInput.addEventListener('change', function(e) {
     if (this.files && this.files[0]) {
-      
+        
         const file = this.files[0];
-        if (file.size > 5 * 1024 * 1024) 
+        if (file.size > 5 * 1024 * 1024) { 
             alert('Die Datei ist zu groß! Bitte wähle eine Datei unter 5MB.');
             return;
         }
@@ -854,7 +862,6 @@ uploadInput.addEventListener('change', function(e) {
         reader.readAsDataURL(file);
     }
 });
-
 
 const uploadContainer = document.querySelector('.upload-container');
 ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
@@ -890,7 +897,7 @@ function handleDrop(e) {
     
     if (files && files[0]) {
         uploadInput.files = files;
-      
+        
         const event = new Event('change');
         uploadInput.dispatchEvent(event);
     }
